@@ -12,7 +12,7 @@ S12 içinde de Workintech eğitmenlerine, adeta bir teknik mülakttaymış gibi,
 > çalıştığını ifade edebilmelisin. Zaman kullanımı ve sunum tekniğin de değerlendirme kriterlerinde yer alıyor. Öncesinde, kendini videoya çekerek, sunum pratiği yapabilirsin.
 
 Not\* Bu dökümanın en sonunda da, sunumda seni değerlendireceğimiz başlıkları da bulabilirsin.
-
+   
 ## Talimatlar
 
 ### Görev 1: Proje Kurulumu
