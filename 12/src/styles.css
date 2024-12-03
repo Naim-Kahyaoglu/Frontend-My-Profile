@@ -1,28 +1,131 @@
+/* Temel stil */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+section {
+  margin: 20px;
+  width: 90%;
+  max-width: 1200px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Başlıkların stili */
+h1, h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+/* Skills listesi */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+li:before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: green;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Flexbox ile düzen */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.container > section {
+  flex: 1 1 300px; /* Her bir bileşen 300px genişliğinde olabilir */
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+
+
+/* Medya sorguları ile responsive tasarım */
+
+/* Tabletler ve küçük ekranlar için */
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
   }
-  
+
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 15px;
   }
-  
+
   section {
-    margin: 20px;
-  }
-  
-  footer {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    position: fixed;
     width: 100%;
-    bottom: 0;
   }
-  
+
+  h1, h2 {
+    font-size: 1.5em;
+  }
+}
+
+/* Mobil ekranlar için */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  h1, h2 {
+    font-size: 1.2em;
+  }
+}
+
