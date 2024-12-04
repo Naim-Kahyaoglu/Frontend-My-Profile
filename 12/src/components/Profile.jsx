@@ -1,15 +1,45 @@
-import React from 'react';
-import a1Image from '../logos/a1.jpg'; // logos klasöründeki a1.jpg dosyasını import ediyoruz
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Profile() {
+  const [profileData, setProfileData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get('/data.json')
+      .then((response) => {
+        setProfileData(response.data.profile);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error loading profile data:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!profileData) {
+    return <div>Error loading profile data.</div>;
+  }
+
   return (
     <section id="profile" style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f9f9f9' }}>
-      <h2>Almila Su</h2>
-      <p>Creative thinker</p>
-      <p>Minimalism lover</p>
-      <p>
-        Hi, I’m Almila. I’m a full-stack developer. If you are looking for a Developer who can craft solid and scalable frontend products with great user experiences, let’s shake hands!
-      </p>
+      <h2>{profileData.name}</h2>
+      <p>{profileData.role}</p>
+      <p>{profileData.description}</p>
+
+      {/* Profile image */}
+      {profileData.image && (
+        <img
+          src={profileData.image}  // Resim yolunu data.json'dan alıyoruz
+          alt="Profile"
+          style={{ width: '200px', height: 'auto', borderRadius: '50%', marginTop: '20px' }}
+        />
+      )}
 
       <div style={{ marginTop: '20px' }}>
         <button
@@ -46,7 +76,7 @@ function Profile() {
             margin: '5px',
             fontSize: '16px',
             cursor: 'pointer',
-            backgroundColor: '#0077B5', // LinkedIn rengi
+            backgroundColor: '#0077B5',
             color: 'white',
             border: 'none',
             borderRadius: '5px',
@@ -54,15 +84,6 @@ function Profile() {
         >
           Linkedin
         </button>
-      </div>
-
-      {/* Logo Resmi */}
-      <div style={{ marginTop: '40px' }}>
-        <img
-          src={a1Image} // a1.jpg dosyasını burada kullanıyoruz
-          alt="Profile Image"
-          style={{ width: '300px', height: 'auto', borderRadius: '10px' }} // Resim boyutları ve köşe yuvarlama
-        />
       </div>
     </section>
   );

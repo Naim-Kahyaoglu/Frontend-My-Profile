@@ -1,7 +1,31 @@
-import React from 'react';
-import logo from '../logos/logo.svg'; // logos klasörüne göre doğru yolu yazıyoruz
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Header() {
+  const [headerData, setHeaderData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get('/data.json')
+      .then((response) => {
+        setHeaderData(response.data.header);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error loading header data:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!headerData) {
+    return <div>Error loading header data.</div>;
+  }
+
   return (
     <header
       style={{
@@ -9,29 +33,29 @@ function Header() {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '20px',
-        backgroundColor: 'white',  // Arka planı beyaz yapıyoruz
-        color: 'black'             // Yazı rengini siyah yapıyoruz
+        backgroundColor: 'white',
+        color: 'black',
       }}
     >
       <img
-        src={logo}  // Logo dosyasını buraya ekliyoruz
+        src={headerData.logo}  // Logo dosyasını dinamik olarak alıyoruz
         alt="Logo"
-        style={{ width: '50px', height: 'auto' }}  // Logo boyutunu ayarlıyoruz
+        style={{ width: '50px', height: 'auto' }}
       />
-      <div>Skills</div>
-      <div>Projects</div>
+      <div>{headerData.skillsText}</div>
+      <div>{headerData.projectsText}</div>
       <button
         style={{
           padding: '10px 20px',
           fontSize: '16px',
           cursor: 'pointer',
-          backgroundColor: '#4CAF50',  // Buton arka planı yeşil
-          color: 'white',              // Buton yazısı beyaz
+          backgroundColor: '#4CAF50',
+          color: 'white',
           border: 'none',
-          borderRadius: '5px'
+          borderRadius: '5px',
         }}
       >
-        Hire me
+        {headerData.buttonText}
       </button>
     </header>
   );

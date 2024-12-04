@@ -17,13 +17,26 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="max-w-full sm:max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Koyu/ Açık mod değişimi */}
       <ModeSwitch onClick={toggleMode} />
+
+      {/* Header */}
       <Header />
+      
+      {/* Profile */}
       <Profile />
+
+      {/* Skills */}
       <Skills />
+
+      {/* Profile2 */}
       <Profile2 />
+
+      {/* Projects */}
       <Projects />
+
+      {/* Footer */}
       <Footer />
     </div>
   );

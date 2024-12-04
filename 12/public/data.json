@@ -1,0 +1,75 @@
+{
+  "header": {
+    "logo": "/logos/logo.svg",
+    "skillsText": "Skills",
+    "projectsText": "Projects",
+    "buttonText": "Hire me"
+  },
+  "profile": {
+    "name": "Almila Su",
+    "role": "Creative thinker",
+    "description": "Hi, I’m Almila. I’m a full-stack developer. If you are looking for a Developer who to craft solid and scalable frontend products with great user experiences. Let’s shake hands with me.",
+    "buttons": [
+      { "text": "Hire me", "bgColor": "#4CAF50" },
+      { "text": "Github", "bgColor": "#333" },
+      { "text": "Linkedin", "bgColor": "#0077B5" }
+    ],
+    "image": "/logos/a1.jpg"
+  },
+  "skills": [
+    { "name": "JavaScript", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+    { "name": "React", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+    { "name": "Node.js", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+  ],
+  "projects": [
+    {
+      "name": "Workintech",
+      "description": "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
+      "technologies": ["React", "Redux", "Axios"],
+      "github": "https://github.com/yourusername",
+      "website": "https://yoursite.com",
+      "image": "/logos/pw1.png"
+    },
+    {
+      "name": "Random Jokes",
+      "description": "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
+      "technologies": ["React", "Node", "Axios"],
+      "github": "https://github.com/yourusername",
+      "website": "https://yoursite.com",
+      "image": "/logos/pr1.png"
+    },
+    {
+      "name": "Journey",
+      "description": "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
+      "technologies": ["React", "Node", "Axios"],
+      "github": "https://github.com/yourusername",
+      "website": "https://yoursite.com",
+      "image": "/logos/pj1.png"
+    }
+  ],
+  "footer": {
+    "text": "Let’s work together on your next product.",
+    "email": "👉 almilasucode@gmail.com",
+    "links": [
+      { "text": "Blog", "href": "https://yourpersonalblog.com" },
+      { "text": "Github", "href": "https://github.com/yourusername" },
+      { "text": "Linkedin", "href": "https://linkedin.com/in/yourusername" }
+    ],
+    "copyright": "© 2024 My Profile Website"
+  },
+  "profile2": {
+    "birthdate": "24.03.1996",
+    "city": "Ankara",
+    "education": "Hacettepe Ünv. Biyoloji Lisans, 2016",
+    "role": "Frontend, UI",
+    "aboutMe": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam aut, odit laborum aliquam voluptatum nisi mollitia. Mnima accusamus ratione soluta aperiam sit voluptate? Dicta quod deserunt quam temporibus cumque magnam!"
+  },
+  "modeSwitch": {
+    "darkModeText": "Dark Mode",
+    "lightModeText": "Light Mode"
+  },
+  "notFound": {
+    "title": "404 Page Not Found",
+    "message": "Oops! The page you are looking for does not exist."
+  }
+}

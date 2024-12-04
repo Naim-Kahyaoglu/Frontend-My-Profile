@@ -1,10 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Temel stil */
 body {
   @apply font-sans bg-gray-100 m-0 p-0 flex flex-col items-center;
+}
+
+/* Sayfanın genişliğini sınırlama */
+.container {
+  @apply max-w-full sm:max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 /* Header */
@@ -14,12 +15,13 @@ header {
 
 /* Section */
 section {
-  @apply my-5 w-11/12 max-w-screen-lg bg-white p-5 rounded-lg shadow-lg;
+  @apply my-4 w-full max-w-4xl bg-white p-5 rounded-lg shadow-lg mx-auto;
+  @apply break-words; /* Yazı taşarsa alt satıra geçmesi için */
 }
 
 /* Başlıkların stili */
 h1, h2 {
-  @apply text-3xl mb-2;
+  @apply text-3xl mb-2 break-words; /* Yazının taşmasını engelle ve alt satıra geçmesini sağla */
 }
 
 /* Skills listesi */
@@ -28,7 +30,7 @@ ul {
 }
 
 li {
-  @apply mb-1 pl-5 relative;
+  @apply mb-1 pl-5 relative break-words; /* Her bir öğe için taşma engeli */
 }
 
 li::before {
@@ -37,24 +39,25 @@ li::before {
 
 /* Footer */
 footer {
-  @apply text-center bg-gray-800 text-white py-2 w-full absolute bottom-0;
+  @apply text-center bg-gray-800 text-white py-2 w-full;
 }
 
 /* Flexbox ile düzen */
 .container {
-  @apply flex flex-wrap justify-around gap-5;
+  @apply flex flex-col items-center;
 }
 
+/* Flex düzeni ile her bileşeni daraltma */
 .container > section {
-  @apply flex-1 min-w-[300px] box-border;
+  @apply w-full max-w-4xl p-5 rounded-lg shadow-lg mx-auto;
 }
 
 /* Medya sorguları ile responsive tasarım */
 
-/* Tabletler ve küçük ekranlar için */
+/* Tabletler ve küçük ekranlar için (max-width: 768px) */
 @media screen and (max-width: 768px) {
   body {
-    @apply flex-col items-center p-2;
+    @apply p-2;
   }
 
   .container {
@@ -74,7 +77,7 @@ footer {
   }
 }
 
-/* Mobil ekranlar için */
+/* Mobil ekranlar için (max-width: 480px) */
 @media screen and (max-width: 480px) {
   body {
     @apply p-1;
