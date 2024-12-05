@@ -27,61 +27,31 @@ function Profile() {
   }
 
   return (
-    <section id="profile" style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f9f9f9' }}>
-      <h2>{profileData.name}</h2>
-      <p>{profileData.role}</p>
-      <p>{profileData.description}</p>
+    <section
+      id="profile"
+      className="p-5 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-md"
+    >
+      <h2 className="text-3xl font-semibold mb-4">{profileData.name}</h2>
+      <p className="text-xl mb-2">{profileData.role}</p>
+      <p className="mb-4">{profileData.description}</p>
 
       {/* Profile image */}
       {profileData.image && (
         <img
-          src={profileData.image}  // Resim yolunu data.json'dan alıyoruz
+          src={profileData.image}
           alt="Profile"
-          style={{ width: '200px', height: 'auto', borderRadius: '50%', marginTop: '20px' }}
+          className="w-48 h-48 rounded-full mx-auto mb-4"
         />
       )}
 
-      <div style={{ marginTop: '20px' }}>
-        <button
-          style={{
-            padding: '10px 20px',
-            margin: '5px',
-            fontSize: '16px',
-            cursor: 'pointer',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-          }}
-        >
+      <div className="flex justify-center space-x-4 mt-5">
+        <button className="bg-green-500 text-white py-2 px-6 rounded-md">
           Hire me
         </button>
-        <button
-          style={{
-            padding: '10px 20px',
-            margin: '5px',
-            fontSize: '16px',
-            cursor: 'pointer',
-            backgroundColor: '#333',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-          }}
-        >
+        <button className="bg-gray-800 text-white py-2 px-6 rounded-md">
           Github
         </button>
-        <button
-          style={{
-            padding: '10px 20px',
-            margin: '5px',
-            fontSize: '16px',
-            cursor: 'pointer',
-            backgroundColor: '#0077B5',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-          }}
-        >
+        <button className="bg-blue-600 text-white py-2 px-6 rounded-md">
           Linkedin
         </button>
       </div>

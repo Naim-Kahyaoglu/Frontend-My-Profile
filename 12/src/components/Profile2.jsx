@@ -27,23 +27,26 @@ function Profile2() {
   }
 
   return (
-    <section id="profile2">
-      <h2>Profile</h2>
+    <section
+      id="profile2"
+      className="p-5 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-md"
+    >
+      <h2 className="text-3xl font-semibold mb-4">Profile</h2>
 
-      <div>
+      <div className="mb-2">
         <strong>Doğum Tarihi:</strong> {profileData.birthdate}
       </div>
-      <div>
+      <div className="mb-2">
         <strong>İkamet Şehri:</strong> {profileData.city}
       </div>
-      <div>
+      <div className="mb-2">
         <strong>Eğitim Durumu:</strong> {profileData.education}
       </div>
-      <div>
+      <div className="mb-2">
         <strong>Tercih Ettiği Rol:</strong> {profileData.role}
       </div>
 
-      <h3>About Me</h3>
+      <h3 className="text-2xl font-semibold mt-4 mb-2">About Me</h3>
       <p>{profileData.aboutMe}</p>
     </section>
   );

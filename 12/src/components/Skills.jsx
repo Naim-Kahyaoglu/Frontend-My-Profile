@@ -27,13 +27,16 @@ function Skills() {
   }
 
   return (
-    <section id="skills" style={{ padding: '20px', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
-      <h2>Skills</h2>
+    <section
+      id="skills"
+      className="p-5 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-md"
+    >
+      <h2 className="text-3xl font-semibold mb-4">Skills</h2>
 
       {skillsData.map((skill, index) => (
-        <div key={index}>
-          <h3>{skill.name}</h3>
-          <p>{skill.description}</p>
+        <div key={index} className="mb-4">
+          <h3 className="text-2xl font-semibold">{skill.name}</h3>
+          <p className="text-lg">{skill.description}</p>
         </div>
       ))}
     </section>

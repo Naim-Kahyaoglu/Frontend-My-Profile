@@ -27,27 +27,25 @@ function Footer() {
   }
 
   return (
-    <footer style={{ padding: '20px', backgroundColor: '#333', color: 'white', textAlign: 'center' }}>
+    <footer className="text-center bg-gray-800 text-white py-5 w-full dark:bg-gray-900 dark:text-gray-300">
       <p>{footerData.text}</p> {/* Footer'dan gelen metni burada kullanıyoruz */}
-      <div style={{ marginTop: '10px' }}>
+      <div className="mt-4">
         {/* Footer'dan gelen e-posta adresini burada kullanıyoruz */}
-        <p style={{ color: 'white', marginRight: '20px' }}>
-          {footerData.email}
-        </p>
+        <p className="text-white dark:text-gray-300">{footerData.email}</p>
 
-        {footerData.links.map((link, index) => {
-          return (
+        <div className="mt-2">
+          {footerData.links.map((link, index) => (
             <a
               key={index}
-              href={link.href} // Diğer linklerin href özelliklerini alıyoruz
-              style={{ color: 'white', textDecoration: 'underline', marginRight: '20px' }}
+              href={link.href}
+              className="text-white underline dark:text-gray-300 mx-2"
             >
               {link.text} {/* Linkin metnini alıyoruz */}
             </a>
-          );
-        })}
+          ))}
+        </div>
       </div>
-      <p style={{ marginTop: '20px' }}>{footerData.copyright}</p> {/* Copyright metnini burada kullanıyoruz */}
+      <p className="mt-4">{footerData.copyright}</p> {/* Copyright metnini burada kullanıyoruz */}
     </footer>
   );
 }

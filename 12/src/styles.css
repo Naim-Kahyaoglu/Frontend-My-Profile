@@ -13,15 +13,30 @@ header {
   @apply bg-gray-800 text-white py-5 w-full text-center;
 }
 
+/* Dark Mode için Header */
+body.dark header {
+  @apply bg-gray-900 text-gray-300;
+}
+
 /* Section */
 section {
   @apply my-4 w-full max-w-4xl bg-white p-5 rounded-lg shadow-lg mx-auto;
-  @apply break-words; /* Yazı taşarsa alt satıra geçmesi için */
+  @apply break-words;
+}
+
+/* Dark Mode için Section */
+body.dark section {
+  @apply bg-gray-800 text-gray-300;
 }
 
 /* Başlıkların stili */
 h1, h2 {
-  @apply text-3xl mb-2 break-words; /* Yazının taşmasını engelle ve alt satıra geçmesini sağla */
+  @apply text-3xl mb-2 break-words;
+}
+
+/* Dark Mode için Başlıklar */
+body.dark h1, body.dark h2 {
+  @apply text-white;
 }
 
 /* Skills listesi */
@@ -30,16 +45,26 @@ ul {
 }
 
 li {
-  @apply mb-1 pl-5 relative break-words; /* Her bir öğe için taşma engeli */
+  @apply mb-1 pl-5 relative break-words;
 }
 
 li::before {
   @apply content-['✔'] absolute left-0 top-0 text-green-500;
 }
 
+/* Dark Mode için Skills listesi */
+body.dark li::before {
+  @apply text-green-400;
+}
+
 /* Footer */
 footer {
   @apply text-center bg-gray-800 text-white py-2 w-full;
+}
+
+/* Dark Mode için Footer */
+body.dark footer {
+  @apply bg-gray-900 text-gray-300;
 }
 
 /* Flexbox ile düzen */
@@ -50,6 +75,18 @@ footer {
 /* Flex düzeni ile her bileşeni daraltma */
 .container > section {
   @apply w-full max-w-4xl p-5 rounded-lg shadow-lg mx-auto;
+}
+
+/* Dark Mode için tüm sayfa genelinde stil */
+body.dark {
+  background-color: #2D2D2D;  /* Koyu arka plan */
+  color: white;  /* Beyaz metin */
+}
+
+/* Temel stil (açık modda kullanılacak) */
+body {
+  background-color: #F7FAFC;  /* Açık arka plan */
+  color: black;  /* Siyah metin */
 }
 
 /* Medya sorguları ile responsive tasarım */

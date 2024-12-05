@@ -14,7 +14,7 @@
       { "text": "Github", "bgColor": "#333" },
       { "text": "Linkedin", "bgColor": "#0077B5" }
     ],
-    "image": "/logos/a1.jpg"
+    "image": "/logos/a1.png"
   },
   "skills": [
     { "name": "JavaScript", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },

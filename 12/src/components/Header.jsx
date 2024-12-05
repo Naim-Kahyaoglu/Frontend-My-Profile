@@ -7,56 +7,50 @@ function Header() {
 
   useEffect(() => {
     axios
-      .get('/data.json')
+      .get('/data.json') // '/data.json' dosyasından veriyi çekiyoruz
       .then((response) => {
-        setHeaderData(response.data.header);
-        setLoading(false);
+        setHeaderData(response.data.header); // Header verisini state'e kaydediyoruz
+        setLoading(false); // Veriler yüklendikten sonra loading durumunu false yapıyoruz
       })
       .catch((error) => {
-        console.error('Error loading header data:', error);
+        console.error('Error loading header data:', error); // Hata durumunda konsola log atıyoruz
         setLoading(false);
       });
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>; // Veriler yüklenene kadar "Loading..." mesajını gösteriyoruz
   }
 
   if (!headerData) {
-    return <div>Error loading header data.</div>;
+    return <div>Error loading header data.</div>; // Eğer header verisi alınamazsa hata mesajı gösteriyoruz
   }
 
   return (
-    <header
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '20px',
-        backgroundColor: 'white',
-        color: 'black',
-      }}
-    >
-      <img
-        src={headerData.logo}  // Logo dosyasını dinamik olarak alıyoruz
-        alt="Logo"
-        style={{ width: '50px', height: 'auto' }}
-      />
-      <div>{headerData.skillsText}</div>
-      <div>{headerData.projectsText}</div>
-      <button
-        style={{
-          padding: '10px 20px',
-          fontSize: '16px',
-          cursor: 'pointer',
-          backgroundColor: '#4CAF50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-        }}
-      >
-        {headerData.buttonText}
-      </button>
+    <header className="flex flex-col md:flex-row justify-between items-center p-5 bg-white dark:bg-gray-800 text-black dark:text-white">
+      {/* Logo */}
+      <div className="flex items-center mb-4 md:mb-0">
+        <img
+          src={headerData.logo} // Logo dosyasını dinamik olarak alıyoruz
+          alt="Logo"
+          className="w-12 h-auto"
+        />
+      </div>
+
+      {/* Metinler */}
+      <div className="text-center md:text-left space-x-4">
+        <div>{headerData.skillsText}</div>
+        <div>{headerData.projectsText}</div>
+      </div>
+
+      {/* Button */}
+      <div className="mt-4 md:mt-0">
+        <button
+          className="py-2 px-4 text-lg cursor-pointer bg-green-500 text-white rounded-lg dark:bg-green-700"
+        >
+          {headerData.buttonText}
+        </button>
+      </div>
     </header>
   );
 }

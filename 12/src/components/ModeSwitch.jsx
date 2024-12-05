@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const ModeSwitch = () => {
-  const [darkMode, setDarkMode] = useState(false);
-  const [modeText, setModeText] = useState("");
+const ModeSwitch = ({ onClick, isDarkMode }) => {
+  const [modeText, setModeText] = useState({
+    darkModeText: "Dark Mode", // Varsayılan metin
+    lightModeText: "Light Mode", // Varsayılan metin
+  });
 
   // Dark Mode'ı açma/kapama fonksiyonu
   const toggleDarkMode = () => {
-    setDarkMode((prevMode) => {
-      const newMode = !prevMode;
-      document.body.classList.toggle("dark", newMode); // Dark mode'u aktif etmek
-      return newMode;
-    });
+    onClick(); // Dark mode state'ini üst bileşene aktarma
   };
 
   useEffect(() => {
@@ -19,7 +17,10 @@ const ModeSwitch = () => {
     axios
       .get("/data.json")
       .then((response) => {
-        setModeText(response.data.modeSwitch);
+        setModeText(response.data.modeSwitch || {
+          darkModeText: "Dark Mode",  // Fallback default metin
+          lightModeText: "Light Mode", // Fallback default metin
+        });
       })
       .catch((error) => {
         console.error("Error loading mode switch data:", error);
@@ -27,8 +28,12 @@ const ModeSwitch = () => {
   }, []);
 
   return (
-    <button className="mode-toggle" onClick={toggleDarkMode}>
-      {darkMode ? modeText.lightModeText : modeText.darkModeText}
+    <button
+      className="p-2 bg-gray-700 text-white rounded-md my-4 mx-4"
+      onClick={toggleDarkMode}
+    >
+      {/* Buton metni, dark mode durumuna göre değişiyor */}
+      {isDarkMode ? modeText.lightModeText : modeText.darkModeText}
     </button>
   );
 };
