@@ -27,27 +27,21 @@ function Header() {
   }
 
   return (
-    <header className="flex flex-col md:flex-row justify-between items-center p-5 bg-white dark:bg-gray-800 text-black dark:text-white">
+    <header className="flex justify-between items-center p-5 bg-white dark:bg-gray-800 text-black dark:text-white">
       {/* Logo */}
-      <div className="flex items-center mb-4 md:mb-0">
+      <div className="flex items-center">
         <img
           src={headerData.logo} // Logo dosyasını dinamik olarak alıyoruz
           alt="Logo"
-          className="w-12 h-auto"
+          className="w-16 h-auto" // Logo boyutunu belirliyoruz
         />
       </div>
 
-      {/* Metinler */}
-      <div className="text-center md:text-left space-x-4">
+      {/* Sağdaki Metinler ve Buton */}
+      <div className="flex items-center space-x-8 ml-auto"> {/* Flex düzeni ile metin ve butonları yatay sıralıyoruz */}
         <div>{headerData.skillsText}</div>
         <div>{headerData.projectsText}</div>
-      </div>
-
-      {/* Button */}
-      <div className="mt-4 md:mt-0">
-        <button
-          className="py-2 px-4 text-lg cursor-pointer bg-green-500 text-white rounded-lg dark:bg-green-700"
-        >
+        <button className="py-2 px-4 text-lg cursor-pointer bg-green-500 text-white rounded-lg dark:bg-green-700">
           {headerData.buttonText}
         </button>
       </div>

@@ -1,134 +1,98 @@
 /* Temel stil */
 body {
-  @apply font-sans bg-gray-100 m-0 p-0 flex flex-col items-center;
-}
-
-/* Sayfanın genişliğini sınırlama */
-.container {
-  @apply max-w-full sm:max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-/* Header */
-header {
-  @apply bg-gray-800 text-white py-5 w-full text-center;
-}
-
-/* Dark Mode için Header */
-body.dark header {
-  @apply bg-gray-900 text-gray-300;
-}
-
-/* Section */
-section {
-  @apply my-4 w-full max-w-4xl bg-white p-5 rounded-lg shadow-lg mx-auto;
-  @apply break-words;
-}
-
-/* Dark Mode için Section */
-body.dark section {
-  @apply bg-gray-800 text-gray-300;
-}
-
-/* Başlıkların stili */
-h1, h2 {
-  @apply text-3xl mb-2 break-words;
-}
-
-/* Dark Mode için Başlıklar */
-body.dark h1, body.dark h2 {
-  @apply text-white;
-}
-
-/* Skills listesi */
-ul {
-  @apply list-none p-0;
-}
-
-li {
-  @apply mb-1 pl-5 relative break-words;
-}
-
-li::before {
-  @apply content-['✔'] absolute left-0 top-0 text-green-500;
-}
-
-/* Dark Mode için Skills listesi */
-body.dark li::before {
-  @apply text-green-400;
-}
-
-/* Footer */
-footer {
-  @apply text-center bg-gray-800 text-white py-2 w-full;
-}
-
-/* Dark Mode için Footer */
-body.dark footer {
-  @apply bg-gray-900 text-gray-300;
-}
-
-/* Flexbox ile düzen */
-.container {
-  @apply flex flex-col items-center;
-}
-
-/* Flex düzeni ile her bileşeni daraltma */
-.container > section {
-  @apply w-full max-w-4xl p-5 rounded-lg shadow-lg mx-auto;
-}
-
-/* Dark Mode için tüm sayfa genelinde stil */
-body.dark {
-  background-color: #2D2D2D;  /* Koyu arka plan */
-  color: white;  /* Beyaz metin */
-}
-
-/* Temel stil (açık modda kullanılacak) */
-body {
+  font-family: sans-serif;
   background-color: #F7FAFC;  /* Açık arka plan */
-  color: black;  /* Siyah metin */
+  color: black; /* Siyah metin */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Sayfayı yatayda ortalar */
+  justify-content: flex-start; /* Sayfayı dikeyde üstten başlatır */
+  min-height: 100vh; /* Sayfa yüksekliğini en az 100vh yaparak tamamını kapsar */
 }
 
-/* Medya sorguları ile responsive tasarım */
-
-/* Tabletler ve küçük ekranlar için (max-width: 768px) */
-@media screen and (max-width: 768px) {
-  body {
-    @apply p-2;
-  }
-
-  .container {
-    @apply flex-col gap-2;
-  }
-
-  header {
-    @apply py-4;
-  }
-
-  section {
-    @apply w-full;
-  }
-
-  h1, h2 {
-    @apply text-2xl;
-  }
+/* Dark Mode için genel stiller */
+body.dark {
+  background-color: #2D2D2D; /* Koyu arka plan */
+  color: white; /* Beyaz metin */
 }
 
-/* Mobil ekranlar için (max-width: 480px) */
-@media screen and (max-width: 480px) {
-  body {
-    @apply p-1;
+/* Skills component için stil ayarları */
+#skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Kutuları yatayda ortalar */
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px; /* Geniş ekranlarda kutu büyüklüğünü sınırlamak */
+  margin: 20px auto; /* Yalnızca yatayda ortalar */
+  background-color: #ffffff; /* Açık renk arka plan */
+  color: black; /* Siyah metin */
+}
+
+/* Dark Mode için Skills component */
+body.dark #skills {
+  background-color: #333; /* Koyu arka plan */
+  color: white; /* Beyaz metin */
+}
+
+.skills-header {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  align-self: flex-start;  /* Başlığı sola hizalamak */
+  color: inherit; /* Dark mode'da renk değişimine uyum sağlar */
+}
+
+.skill-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;  /* Kutular arasındaki boşluk */
+  flex-wrap: wrap; /* Kutuların taşmaması için */
+  width: 100%;
+}
+
+.skill-box {
+  background-color: #f4f4f4; /* Kutunun arka plan rengi */
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%; /* Kutunun genişliği */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Kutular için gölge */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  /* İçeriği ortalar */
+  margin-bottom: 20px;  /* Kutuların altına boşluk ekler */
+  color: black; /* Siyah metin */
+}
+
+/* Dark Mode için skill kutularındaki renkler */
+body.dark .skill-box {
+  background-color: #444; /* Koyu renkli kutu arka planı */
+  color: white; /* Beyaz metin */
+}
+
+.skill-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.skill-description {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+  #skills .skill-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Mobilde kutular arasındaki boşluk */
   }
 
-  header {
-    @apply py-2;
-  }
-
-  section {
-    @apply p-3;
-  }
-
-  h1, h2 {
-    @apply text-xl;
+  #skills .skill-box {
+    width: 80%; /* Mobilde kutular daha geniş olacak */
   }
 }

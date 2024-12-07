@@ -27,18 +27,19 @@ function Skills() {
   }
 
   return (
-    <section
-      id="skills"
-      className="p-5 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-md"
-    >
-      <h2 className="text-3xl font-semibold mb-4">Skills</h2>
+    <section id="skills" className="p-5 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-md">
+      {/* Skills başlığı */}
+      <h2 className="skills-header">Skills</h2>
 
-      {skillsData.map((skill, index) => (
-        <div key={index} className="mb-4">
-          <h3 className="text-2xl font-semibold">{skill.name}</h3>
-          <p className="text-lg">{skill.description}</p>
-        </div>
-      ))}
+      {/* Skill kutuları */}
+      <div className="skill-container">
+        {skillsData.map((skill, index) => (
+          <div key={index} className="skill-box">
+            <h3 className="skill-name">{skill.name}</h3>
+            <p className="skill-description">{skill.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

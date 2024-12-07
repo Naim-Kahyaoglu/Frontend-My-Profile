@@ -33,21 +33,30 @@ function Profile2() {
     >
       <h2 className="text-3xl font-semibold mb-4">Profile</h2>
 
-      <div className="mb-2">
-        <strong>Doğum Tarihi:</strong> {profileData.birthdate}
-      </div>
-      <div className="mb-2">
-        <strong>İkamet Şehri:</strong> {profileData.city}
-      </div>
-      <div className="mb-2">
-        <strong>Eğitim Durumu:</strong> {profileData.education}
-      </div>
-      <div className="mb-2">
-        <strong>Tercih Ettiği Rol:</strong> {profileData.role}
-      </div>
+      <div className="profile-container flex gap-8">
+        {/* Left Section */}
+        <div className="profile-left w-1/2">
+          <h3 className="text-2xl font-semibold mb-2">Profile</h3>
+          <div className="mb-2">
+            <strong>Doğum Tarihi:</strong> {profileData.birthdate}
+          </div>
+          <div className="mb-2">
+            <strong>İkamet Şehri:</strong> {profileData.city}
+          </div>
+          <div className="mb-2">
+            <strong>Eğitim Durumu:</strong> {profileData.education}
+          </div>
+          <div className="mb-2">
+            <strong>Tercih Ettiği Rol:</strong> {profileData.role}
+          </div>
+        </div>
 
-      <h3 className="text-2xl font-semibold mt-4 mb-2">About Me</h3>
-      <p>{profileData.aboutMe}</p>
+        {/* Right Section */}
+        <div className="profile-right w-1/2">
+          <h3 className="text-2xl font-semibold mb-2">About Me</h3>
+          <p>{profileData.aboutMe}</p>
+        </div>
+      </div>
     </section>
   );
 }
