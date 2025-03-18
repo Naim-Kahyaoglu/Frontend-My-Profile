@@ -18,7 +18,7 @@ function App() {
   };
 
   return (
-    <div className="max-w-full sm:max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="container">
       {/* Dark mode butonu */}
       <ModeSwitch onClick={toggleMode} isDarkMode={isDarkMode} />
 

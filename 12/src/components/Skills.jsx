@@ -27,16 +27,16 @@ function Skills() {
   }
 
   return (
-    <section id="skills" className="p-5 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-md">
-      {/* Skills başlığı */}
-      <h2 className="skills-header">Skills</h2>
-
-      {/* Skill kutuları */}
-      <div className="skill-container">
+    <section id="skills" className="bg-white dark:bg-gray-800 rounded-lg shadow-md">
+      <h2 className="text-3xl font-semibold mb-6">Skills</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skillsData.map((skill, index) => (
-          <div key={index} className="skill-box">
-            <h3 className="skill-name">{skill.name}</h3>
-            <p className="skill-description">{skill.description}</p>
+          <div
+            key={index}
+            className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+          >
+            <h3 className="text-xl font-semibold mb-3">{skill.name}</h3>
+            <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
           </div>
         ))}
       </div>
