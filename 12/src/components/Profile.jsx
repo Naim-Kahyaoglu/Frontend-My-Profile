@@ -32,19 +32,19 @@ function Profile({ language }) {
   };
 
   return (
-    <section className="mb-20">
+    <section className="my-16">
       <div className="ml-24 relative text-purple-600 before:content-[''] before:absolute before:w-20 before:h-px before:bg-purple-600 before:left-[-24px] before:top-1/2">
         {profileData.name}
       </div>
       
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-8 mt-4">
-        <div className="md:w-1/2">
+      <div className="flex flex-col md:flex-row mt-8 gap-16">
+        <div className="md:w-7/12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
-            {content[language].title}
+            {profileData[language].title}
           </h1>
           
           <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
-            {content[language].description}
+            {profileData[language].description}
           </p>
           
           <div className="flex flex-wrap gap-4">
@@ -66,7 +66,7 @@ function Profile({ language }) {
           </div>
         </div>
         
-        <div className="md:w-2/5">
+        <div className="md:w-5/12">
           <img 
             src={profileData.image} 
             alt="Profile" 

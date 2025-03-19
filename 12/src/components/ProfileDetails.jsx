@@ -41,33 +41,33 @@ function ProfileDetails({ language }) {
 
   return (
     <section id="profile-details" className="my-24">
-      <h2 className="text-3xl font-bold mb-10 text-gray-900 dark:text-white">
-        {language === 'en' ? 'Profile' : 'Profil'}
+      <h2 className="text-3xl font-bold mb-12 text-gray-900 dark:text-white">
+        {labels[language].title}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-purple-600">
+          <h3 className="text-xl font-semibold mb-6 text-purple-600">
             {labels[language].title}
           </h3>
           
-          <div className="space-y-3">
-            <div className="flex">
+          <div className="space-y-5">
+            <div className="flex items-center">
               <span className="font-medium w-40">{labels[language].birthdate}:</span>
               <span>{profile2Data.birthdate}</span>
             </div>
             
-            <div className="flex">
+            <div className="flex items-center">
               <span className="font-medium w-40">{labels[language].city}:</span>
               <span>{profile2Data.city}</span>
             </div>
             
-            <div className="flex">
+            <div className="flex items-center">
               <span className="font-medium w-40">{labels[language].education}:</span>
               <span>{profile2Data.education}</span>
             </div>
             
-            <div className="flex">
+            <div className="flex items-center">
               <span className="font-medium w-40">{labels[language].role}:</span>
               <span>{profile2Data.role}</span>
             </div>
@@ -75,7 +75,7 @@ function ProfileDetails({ language }) {
         </div>
         
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-purple-600">
+          <h3 className="text-xl font-semibold mb-6 text-purple-600">
             {labels[language].aboutMe}
           </h3>
           <p className="text-gray-700 dark:text-gray-300">
@@ -86,5 +86,4 @@ function ProfileDetails({ language }) {
     </section>
   );
 }
-
 export default ProfileDetails;

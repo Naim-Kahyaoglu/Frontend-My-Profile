@@ -22,7 +22,7 @@ function Skills({ language }) {
 
   return (
     <section id="skills" className="my-24">
-      <h2 className="text-3xl font-bold mb-10 text-gray-900 dark:text-white">
+      <h2 className="text-3xl font-bold mb-12 text-gray-900 dark:text-white">
         {language === 'en' ? 'Skills' : 'Yetenekler'}
       </h2>
       
@@ -39,5 +39,4 @@ function Skills({ language }) {
     </section>
   );
 }
-
 export default Skills;

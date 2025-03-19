@@ -40,8 +40,8 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-4 max-w-6xl">
-      <div className="flex justify-end space-x-4 mb-4">
+    <div className="max-w-6xl mx-auto px-5 py-8">
+      <div className="flex justify-end space-x-4 mb-6">
         <ModeSwitch isDarkMode={isDarkMode} onClick={toggleDarkMode} />
         <button 
           onClick={toggleLanguage}

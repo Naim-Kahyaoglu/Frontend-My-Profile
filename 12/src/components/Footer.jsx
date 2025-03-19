@@ -32,37 +32,35 @@ function Footer({ language }) {
   };
 
   return (
-    <footer className="py-12 mt-16 border-t border-gray-200 dark:border-gray-700">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-          {content[language].workTogether}
-        </h2>
-        
-        <div className="flex items-center mb-8">
-          <span className="text-yellow-500 mr-2">👉</span>
-          <a 
-            href={`mailto:${footerData.email.replace('👉 ', '')}`}
-            className="text-purple-600 hover:underline"
-          >
-            {footerData.email.replace('👉 ', '')}
-          </a>
-        </div>
-        
-        <div className="flex space-x-6 text-gray-600 dark:text-gray-400">
-          <a href="#" className="hover:text-purple-600 transition-colors">
-            {content[language].personalBlog}
-          </a>
-          <a href="#" className="hover:text-purple-600 transition-colors">
-            Github
-          </a>
-          <a href="#" className="hover:text-purple-600 transition-colors">
-            LinkedIn
-          </a>
-        </div>
-        
-        <div className="mt-8 text-gray-500 dark:text-gray-400 text-sm">
-          {footerData.copyright}
-        </div>
+    <footer className="my-24">
+      <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
+        {content[language].workTogether}
+      </h2>
+      
+      <div className="flex items-center mb-8">
+        <span className="text-yellow-500 mr-2">👉</span>
+        <a 
+          href={`mailto:${footerData.email.replace('👉 ', '')}`}
+          className="text-purple-600 hover:underline"
+        >
+          {footerData.email.replace('👉 ', '')}
+        </a>
+      </div>
+      
+      <div className="flex space-x-6 text-gray-600 dark:text-gray-400">
+        <a href="#" className="hover:text-purple-600 transition-colors">
+          {content[language].personalBlog}
+        </a>
+        <a href="#" className="hover:text-purple-600 transition-colors">
+          Github
+        </a>
+        <a href="#" className="hover:text-purple-600 transition-colors">
+          LinkedIn
+        </a>
+      </div>
+      
+      <div className="mt-8 text-gray-500 dark:text-gray-400 text-sm">
+        {footerData.copyright}
       </div>
     </footer>
   );

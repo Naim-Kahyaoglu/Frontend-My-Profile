@@ -33,7 +33,7 @@ function Projects({ language }) {
 
   return (
     <section id="projects" className="my-24">
-      <h2 className="text-3xl font-bold mb-10 text-gray-900 dark:text-white">
+      <h2 className="text-3xl font-bold mb-12 text-gray-900 dark:text-white">
         {labels[language].title}
       </h2>
       
@@ -47,12 +47,12 @@ function Projects({ language }) {
             />
             
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              <h3 className="text-xl font-semibold mb-3">{project.name}</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-5 line-clamp-3">
                 {project.description}
               </p>
               
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-5">
                 {project.technologies.map((tech, idx) => (
                   <span 
                     key={idx}
@@ -63,16 +63,22 @@ function Projects({ language }) {
                 ))}
               </div>
               
-              <div className="flex space-x-4">
-                <a 
-                  href={project.github}
-                  className="text-gray-700 dark:text-gray-300 hover:text-purple-600 transition-colors"
-                >
+              <div className="grid grid-cols-3 gap-2">
+                <a href={project.github} className="text-center text-gray-600 dark:text-gray-300">
                   Github
+                </a>
+                <a href="#" className="text-center text-purple-600">
+                  react
+                </a>
+                <a href="#" className="text-center text-purple-600">
+                  redux
+                </a>
+                <a href="#" className="text-center text-purple-600">
+                  axios
                 </a>
                 <a 
                   href={project.website}
-                  className="text-gray-700 dark:text-gray-300 hover:text-purple-600 transition-colors"
+                  className="text-center text-gray-600 dark:text-gray-300"
                 >
                   {labels[language].viewSite}
                 </a>
