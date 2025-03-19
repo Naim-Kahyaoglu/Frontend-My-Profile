@@ -1,48 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Header() {
+function Header({ language }) {
   const [headerData, setHeaderData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get('/data.json') // '/data.json' dosyasından veriyi çekiyoruz
+      .get('/data.json')
       .then((response) => {
-        setHeaderData(response.data.header); // Header verisini state'e kaydediyoruz
-        setLoading(false); // Veriler yüklendikten sonra loading durumunu false yapıyoruz
+        setHeaderData(response.data.header);
+        setLoading(false);
       })
       .catch((error) => {
-        console.error('Error loading header data:', error); // Hata durumunda konsola log atıyoruz
+        console.error('Error loading header data:', error);
         setLoading(false);
       });
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>; // Veriler yüklenene kadar "Loading..." mesajını gösteriyoruz
-  }
-
-  if (!headerData) {
-    return <div>Error loading header data.</div>; // Eğer header verisi alınamazsa hata mesajı gösteriyoruz
-  }
+  if (loading || !headerData) return <div>Loading...</div>;
 
   return (
-    <header className="flex justify-between items-center p-5 bg-white dark:bg-gray-800 text-black dark:text-white">
+    <header className="flex items-center justify-between mb-8">
       {/* Logo */}
-      <div className="flex items-center">
-        <img
-          src={headerData.logo} // Logo dosyasını dinamik olarak alıyoruz
-          alt="Logo"
-          className="w-16 h-auto" // Logo boyutunu belirliyoruz
-        />
+      <div className="w-16 h-16 bg-purple-100 dark:bg-purple-800/30 rounded-full flex items-center justify-center">
+        <img src={headerData.logo} alt="Logo" className="w-8 h-8" />
       </div>
-
-      {/* Sağdaki Metinler ve Buton */}
-      <div className="flex items-center space-x-8 ml-auto"> {/* Flex düzeni ile metin ve butonları yatay sıralıyoruz */}
-        <div>{headerData.skillsText}</div>
-        <div>{headerData.projectsText}</div>
-        <button className="py-2 px-4 text-lg cursor-pointer bg-green-500 text-white rounded-lg dark:bg-green-700">
-          {headerData.buttonText}
+      
+      {/* Navigation */}
+      <div className="flex items-center space-x-8">
+        <a href="#skills" className="text-gray-700 dark:text-gray-300 hover:text-purple-600 transition-colors">
+          {language === 'en' ? 'Skills' : 'Yetenekler'}
+        </a>
+        <a href="#projects" className="text-gray-700 dark:text-gray-300 hover:text-purple-600 transition-colors">
+          {language === 'en' ? 'Projects' : 'Projeler'}
+        </a>
+        <button className="border border-purple-600 text-purple-600 px-4 py-2 rounded-md hover:bg-purple-600 hover:text-white transition-colors">
+          {language === 'en' ? 'Hire me' : 'İşe Al'}
         </button>
       </div>
     </header>

@@ -3,23 +3,17 @@ import axios from "axios";
 
 const ModeSwitch = ({ onClick, isDarkMode }) => {
   const [modeText, setModeText] = useState({
-    darkModeText: "Dark Mode", // Varsayılan metin
-    lightModeText: "Light Mode", // Varsayılan metin
+    darkModeText: "DARK MODE",
+    lightModeText: "LIGHT MODE",
   });
 
-  // Dark Mode'ı açma/kapama fonksiyonu
-  const toggleDarkMode = () => {
-    onClick(); // Dark mode state'ini üst bileşene aktarma
-  };
-
   useEffect(() => {
-    // Veriyi data.json'dan alıyoruz
     axios
       .get("/data.json")
       .then((response) => {
         setModeText(response.data.modeSwitch || {
-          darkModeText: "Dark Mode",  // Fallback default metin
-          lightModeText: "Light Mode", // Fallback default metin
+          darkModeText: "DARK MODE",
+          lightModeText: "LIGHT MODE",
         });
       })
       .catch((error) => {
@@ -28,13 +22,17 @@ const ModeSwitch = ({ onClick, isDarkMode }) => {
   }, []);
 
   return (
-    <button
-      className="p-2 bg-gray-700 text-white rounded-md my-4 mx-4"
-      onClick={toggleDarkMode}
-    >
-      {/* Buton metni, dark mode durumuna göre değişiyor */}
-      {isDarkMode ? modeText.lightModeText : modeText.darkModeText}
-    </button>
+    <div className="flex items-center">
+      <button 
+        onClick={onClick}
+        className="relative inline-flex items-center h-6 rounded-full w-11 bg-gray-200 dark:bg-purple-600 transition-colors"
+      >
+        <span className={`${isDarkMode ? 'translate-x-6' : 'translate-x-1'} inline-block w-4 h-4 transform bg-white rounded-full transition-transform`} />
+      </button>
+      <span className="ml-2 text-sm">
+        {isDarkMode ? modeText.darkModeText : modeText.lightModeText}
+      </span>
+    </div>
   );
 };
 

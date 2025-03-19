@@ -1,132 +1,42 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Base styles */
 body {
   font-family: sans-serif;
-  background-color: #F7FAFC;
-  color: black;
-  min-height: 100vh;
-}
-
-/* Dark Mode base styles */
-body.dark {
-  background-color: #2D2D2D;
-  color: white;
-}
-
-/* Global container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Component spacing */
-section {
-  margin-bottom: 2rem;
-}
-
-/* Remove conflicting styles */
-#skills {
-  width: 100%;
-  padding: 2rem;
   background-color: #ffffff;
+  color: #1a202c;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark #skills {
-  background-color: #333;
+/* Dark mode styles */
+body.dark {
+  background-color: #111827;
+  color: #f3f4f6;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 0.5rem;
+/* Animation for page elements */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Custom component classes */
+@layer components {
+  .btn-primary {
+    @apply bg-purple-600 text-white px-6 py-3 rounded hover:bg-purple-700 transition-colors;
   }
   
-  section {
-    margin-bottom: 1rem;
+  .btn-secondary {
+    @apply border border-gray-800 dark:border-white text-gray-800 dark:text-white px-6 py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors;
   }
-}
-
-/* Skills component için stil ayarları */
-#skills {
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* Kutuları yatayda ortalar */
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px; /* Geniş ekranlarda kutu büyüklüğünü sınırlamak */
-  margin: 20px auto; /* Yalnızca yatayda ortalar */
-  background-color: #ffffff; /* Açık renk arka plan */
-  color: black; /* Siyah metin */
-}
-
-/* Dark Mode için Skills component */
-body.dark #skills {
-  background-color: #333; /* Koyu arka plan */
-  color: white; /* Beyaz metin */
-}
-
-.skills-header {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  align-self: flex-start;  /* Başlığı sola hizalamak */
-  color: inherit; /* Dark mode'da renk değişimine uyum sağlar */
-}
-
-.skill-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;  /* Kutular arasındaki boşluk */
-  flex-wrap: wrap; /* Kutuların taşmaması için */
-  width: 100%;
-}
-
-.skill-box {
-  background-color: #f4f4f4; /* Kutunun arka plan rengi */
-  padding: 20px;
-  border-radius: 8px;
-  width: 30%; /* Kutunun genişliği */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Kutular için gölge */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;  /* İçeriği ortalar */
-  margin-bottom: 20px;  /* Kutuların altına boşluk ekler */
-  color: black; /* Siyah metin */
-}
-
-/* Dark Mode için skill kutularındaki renkler */
-body.dark .skill-box {
-  background-color: #444; /* Koyu renkli kutu arka planı */
-  color: white; /* Beyaz metin */
-}
-
-.skill-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.skill-description {
-  font-size: 1rem;
-  text-align: center;
-}
-
-/* Responsive düzenlemeler */
-@media (max-width: 768px) {
-  #skills .skill-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Mobilde kutular arasındaki boşluk */
-  }
-
-  #skills .skill-box {
-    width: 80%; /* Mobilde kutular daha geniş olacak */
+  
+  .section-heading {
+    @apply text-3xl font-bold mb-10 text-gray-900 dark:text-white;
   }
 }

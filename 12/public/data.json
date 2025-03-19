@@ -1,19 +1,37 @@
 {
   "header": {
     "logo": "/logos/logo.svg",
-    "skillsText": "Skills",
-    "projectsText": "Projects",
-    "buttonText": "Hire me"
+    "en": {
+      "skillsText": "Skills",
+      "projectsText": "Projects",
+      "buttonText": "Hire me"
+    },
+    "tr": {
+      "skillsText": "Yetenekler",
+      "projectsText": "Projeler",
+      "buttonText": "İşe Al"
+    }
   },
   "profile": {
     "name": "Almila Su",
-    "role": "Creative thinker Minimalism lover",
-    "description": "Hi, I’m Almila. I’m a full-stack developer. If you are looking for a Developer who to craft solid and scalable frontend products with great user experiences. Let’s shake hands with me.",
-    "buttons": [
-      { "text": "Hire me", "bgColor": "#4CAF50" },
-      { "text": "Github", "bgColor": "#333" },
-      { "text": "Linkedin", "bgColor": "#0077B5" }
-    ],
+    "en": {
+      "title": "Creative thinker Minimalism lover",
+      "description": "Hi, I'm Almila. I'm a full-stack developer. If you are looking for a Developer who to craft solid and scalable frontend products with great user experiences. Let's shake hands with me.",
+      "buttons": [
+        { "text": "Hire me", "bgColor": "#4CAF50" },
+        { "text": "Github", "bgColor": "#333" },
+        { "text": "Linkedin", "bgColor": "#0077B5" }
+      ]
+    },
+    "tr": {
+      "title": "Yaratıcı düşünür Minimalizm sever",
+      "description": "Merhaba, ben Almila. Full-stack geliştiriciyim. Eğer harika kullanıcı deneyimleri ile sağlam ve ölçeklenebilir frontend ürünleri oluşturacak bir Geliştirici arıyorsanız. Benimle el sıkışalım.",
+      "buttons": [
+        { "text": "İşe Al", "bgColor": "#4CAF50" },
+        { "text": "Github", "bgColor": "#333" },
+        { "text": "Linkedin", "bgColor": "#0077B5" }
+      ]
+    },
     "image": "/logos/a1.png"
   },
   "skills": [
@@ -48,7 +66,7 @@
     }
   ],
   "footer": {
-    "text": "Let’s work together on your next product.",
+    "text": "Let's work together on your next product.",
     "email": "👉 almilasucode@gmail.com",
     "links": [
       { "text": "Blog", "href": "https://yourpersonalblog.com" },
@@ -65,8 +83,8 @@
     "aboutMe": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam aut, odit laborum aliquam voluptatum nisi mollitia. Mnima accusamus ratione soluta aperiam sit voluptate? Dicta quod deserunt quam temporibus cumque magnam!"
   },
   "modeSwitch": {
-    "darkModeText": "Dark Mode",
-    "lightModeText": "Light Mode"
+    "darkModeText": "DARK MODE",
+    "lightModeText": "LIGHT MODE"
   },
   "notFound": {
     "title": "404 Page Not Found",

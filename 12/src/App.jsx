@@ -1,44 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Profile from './components/Profile';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Profile2 from './components/Profile2';
+import ProfileDetails from './components/ProfileDetails';
 import ModeSwitch from './components/ModeSwitch';
-import './styles.css'; // styles.css'i dahil ettik
+import './styles.css';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [language, setLanguage] = useState('en'); // 'en' for English, 'tr' for Turkish
 
-  // Dark mode değiştirme fonksiyonu
-  const toggleMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle('dark', !isDarkMode);  // dark sınıfını ekleyip çıkarıyoruz
+  useEffect(() => {
+    // Check for saved preferences in localStorage
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    
+    setIsDarkMode(savedDarkMode);
+    setLanguage(savedLanguage);
+    
+    // Apply dark mode if saved
+    document.body.classList.toggle('dark', savedDarkMode);
+  }, []);
+
+  // Dark mode toggle function
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    document.body.classList.toggle('dark', newDarkMode);
+    localStorage.setItem('darkMode', newDarkMode);
+  };
+
+  // Language toggle function
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'tr' : 'en';
+    setLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
   };
 
   return (
-    <div className="container">
-      {/* Dark mode butonu */}
-      <ModeSwitch onClick={toggleMode} isDarkMode={isDarkMode} />
-
-      {/* Header */}
-      <Header />
+    <div className="container mx-auto px-4 py-4 max-w-6xl">
+      <div className="flex justify-end space-x-4 mb-4">
+        <ModeSwitch isDarkMode={isDarkMode} onClick={toggleDarkMode} />
+        <button 
+          onClick={toggleLanguage}
+          className="text-purple-600 hover:underline"
+        >
+          {language === 'en' ? 'TÜRKÇE\'YE GEÇ' : 'SWITCH TO ENGLISH'}
+        </button>
+      </div>
       
-      {/* Profile */}
-      <Profile />
-
-      {/* Skills */}
-      <Skills />
-
-      {/* Profile2 */}
-      <Profile2 />
-
-      {/* Projects */}
-      <Projects />
-
-      {/* Footer */}
-      <Footer />
+      <Header language={language} />
+      <Profile language={language} />
+      <Skills language={language} />
+      <ProfileDetails language={language} />
+      <Projects language={language} />
+      <Footer language={language} />
     </div>
   );
 }
